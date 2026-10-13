@@ -15,8 +15,10 @@ def test_login_exitoso():
     try:
         driver.get("https://www.saucedemo.com/")
 
-        usuario = driver.find_element(By.ID, "user-name")
-        password = driver.find_element(By.ID, "password" )
+        usuario = wait.until(EC.presence_of_element_located((By.ID, "user-name"))) 
+        #driver.find_element(By.ID, "user-name")
+        password = wait.until(EC.presence_of_element_located((By.ID, "password"))) 
+        #driver.find_element(By.ID, "password" )
         button_login = wait.until(EC.element_to_be_clickable((By.ID, "login-button")))
         
         #driver.find_element(By.ID, "login-button" )
